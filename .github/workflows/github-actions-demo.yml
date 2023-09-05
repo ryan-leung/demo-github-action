@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     env:  # Define your environment variables here
         huggingface_api: ${{ secrets.huggingface_api }}
-        huggingface_url: ${{ variables.huggingface_url }}
+        huggingface_url: ${{ env.huggingface_url }}
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - name: Checkout code
@@ -20,4 +20,7 @@ jobs:
           pip install -r requirements.txt
       - name: Run Python script
         run: python main.py
+        env:
+          huggingface_api: ${{ env.huggingface_api }}
+          huggingface_url: ${{ env.huggingface_url }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
