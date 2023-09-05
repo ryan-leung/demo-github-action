@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     env:  # Define your environment variables here
         huggingface_api: ${{ secrets.huggingface_api }}
-        huggingface_url: ${{ secrets.huggingface_url }}
+        huggingface_url: ${{ variables.huggingface_url }}
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - name: Checkout code
