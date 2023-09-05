@@ -1,8 +1,12 @@
-name: GitHub Actions Demo
+on:
+  schedule:
+    - cron:  '0 23 * * *' # every day at 2300
+name: Pull Data and Build
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  build:
+    name: Build
     runs-on: ubuntu-latest
     env:  # Define your environment variables here
         huggingface_api: ${{ secrets.huggingface_api }}
